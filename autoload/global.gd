@@ -81,12 +81,9 @@ func _ready():
 		preload("res://textures/brick11.png")  #2 hits
 	]
 
-	#TODO : FIX for locales not working on osx
-	TranslationServer.set_locale("fr")
-	#print("locale is "+OS.get_environment("$LANG"))
 	randomize()
 	mod_scener = get_node("/root/mod_scener")
-#	OS.set_window_fullscreen( true )
+
 
 	
 #SCENE MANAGEMENT

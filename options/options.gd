@@ -2,11 +2,14 @@
 extends Node
 
 var global
+var options
 var languages = ["en","fr"]
+
 
 func _ready():
 	global = get_node("/root/global")
-
+	options = get_node("/root/options_manager").read_options()
+	
 	var languageOption = get_node("GridContainer/LanguageOption")
 	var currentLang = TranslationServer.get_locale()
 	for i in range(languages.size()):
@@ -23,10 +26,13 @@ func _on_main_menu_pressed():
 
 func _on_LanguageOption_item_selected( ID ):
 	TranslationServer.set_locale(languages[ID])
+	options["locale"]=languages[ID]
+	get_node("/root/options_manager").write_options(options)
 	global.load_options() #reload the scene when language changes
 
 
 func _on_screenOption_toggled( pressed ):
 	OS.set_window_fullscreen( pressed )
-
+	options["full_screen"]=pressed
+	get_node("/root/options_manager").write_options(options)
 
