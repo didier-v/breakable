@@ -10,7 +10,6 @@ var pauseDialogResource
 var ballResource
 var bonusResource
 
-
 var current_level
 var playing # true if playing, false if about to start
 var lifes setget set_lifes # number of balls left
@@ -44,7 +43,7 @@ func _ready():
 	set_lifes(3)
 	current_speed=0
 	bricks_since_last_bonus = 0
-	current_level=2
+	current_level=1
 	init_level()
 	
 	#input
