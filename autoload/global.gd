@@ -64,12 +64,12 @@ func _ready():
 	}
 	
 	bonus_message = {
-		"score":"1000 points de plus",
-		"sticky":"GLU",
-		"three_balls":"3 BALLES",
-		"extra_life":"1 VIE DE PLUS" ,
-		"small_paddle":"Petite raquette",
-		"big_paddle":"Grande raquette",
+		"score":"BONUS_SCORE",
+		"sticky":"BONUS_STICKY",
+		"three_balls":"BONUS_THREE_BALLS",
+		"extra_life":"BONUS_EXTRA_LIFE",
+		"small_paddle":"BONUS_SMALL_PADDLE",
+		"big_paddle":"BONUS_BIG_PADDLE",
 #		"ninja_stars":10,
 #		"ghost":5,
 #		"fog":10
