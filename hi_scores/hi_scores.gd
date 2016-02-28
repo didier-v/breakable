@@ -1,14 +1,11 @@
 
 extends Node
 
-#autoload
-var global
-var hsm
+#autoload singletons
+# global
+# hsm
 
 func _ready():
-	#autoload
-	global = get_node("/root/global")
-	hsm = get_node("/root/hi_scores_manager")
 
 	#list is made of 3 text nodes
 	var pos=get_node("VBoxContainer/GridContainer/pos")

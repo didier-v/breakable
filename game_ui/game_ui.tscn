@@ -1,0 +1,128 @@
+[gd_scene load_steps=6 format=1]
+
+[ext_resource path="res://game_ui/game_ui.gd" type="Script" id=1]
+[ext_resource path="res://fonts/ricasso.fnt" type="Font" id=2]
+[ext_resource path="res://game_ui/ball_ui.gd" type="Script" id=3]
+
+[sub_resource type="Animation" id=2]
+
+resource/name = "message"
+length = 3.0
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("message:visibility/opacity")
+tracks/0/interp = 1
+tracks/0/keys = { "cont":true, "times":FloatArray( 0, 0.2, 2.2, 3 ), "transitions":FloatArray( 1, 1, 1, 1 ), "values":[ 0.0, 1.0, 1.0, 0.0 ] }
+
+[sub_resource type="Animation" id=1]
+
+length = 1.0
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("multiplier:custom_colors/font_color")
+tracks/0/interp = 1
+tracks/0/keys = { "cont":true, "times":FloatArray( 0, 0.2, 1 ), "transitions":FloatArray( 1, 1, 1 ), "values":[ Color( 0.840985, 0, 0, 1 ), Color( 1, 1, 1, 1 ), Color( 0.840985, 0, 0, 1 ) ] }
+
+[node name="game_ui" type="Node2D"]
+
+transform/pos = Vector2( 6, -6 )
+script/script = ExtResource( 1 )
+__meta__ = { "__editor_plugin_screen__":"2D" }
+
+[node name="score" type="Label" parent="."]
+
+margin/left = 574.0
+margin/top = 1.0
+margin/right = 862.0
+margin/bottom = 41.0
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0, 0.386039, 1, 1 )
+text = "000 000 000"
+align = 2
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="multiplier" type="Label" parent="."]
+
+margin/left = 890.0
+margin/top = 1.0
+margin/right = 998.0
+margin/bottom = 41.0
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0.840985, 0, 0, 1 )
+text = "x01"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="lifes" type="Label" parent="."]
+
+margin/left = 60.0
+margin/top = 1.0
+margin/right = 160.0
+margin/bottom = 41.0
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+custom_fonts/font = ExtResource( 2 )
+text = "02"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="ball_ui" type="Sprite" parent="lifes"]
+
+transform/pos = Vector2( -10, 15 )
+script/script = ExtResource( 3 )
+
+[node name="multiplier_animation" type="AnimationPlayer" parent="."]
+
+playback/process_mode = 1
+playback/default_blend_time = 0.0
+root/root = NodePath("..")
+anims/message = SubResource( 2 )
+anims/multiplier = SubResource( 1 )
+playback/active = true
+playback/speed = 1.0
+blend_times = [  ]
+autoplay = ""
+
+[node name="message" type="Label" parent="."]
+
+visibility/opacity = 0.0
+margin/left = 180.0
+margin/top = 1.0
+margin/right = 550.0
+margin/bottom = 41.0
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0.758645, 0.790448, 0.789488, 1 )
+text = "Breakable"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="message_animation" type="AnimationPlayer" parent="."]
+
+playback/process_mode = 1
+playback/default_blend_time = 0.0
+root/root = NodePath("..")
+anims/message = SubResource( 2 )
+playback/active = true
+playback/speed = 1.0
+blend_times = [  ]
+autoplay = ""
+
+

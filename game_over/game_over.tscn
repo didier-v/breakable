@@ -1,0 +1,119 @@
+[gd_scene load_steps=5 format=1]
+
+[ext_resource path="res://game_over/game_over.gd" type="Script" id=1]
+[ext_resource path="res://themes/main.thm" type="Theme" id=2]
+[ext_resource path="res://new_hi_score_dialog/new_hi_score_dialog.tscn" type="PackedScene" id=3]
+
+
+[sub_resource type="ImageTexture" id=1]
+
+flags = 7
+image = Image()
+size = Vector2( 1024, 768 )
+storage = 0
+lossy_quality = 0.7
+
+[node name="game_over" type="Node2D"]
+
+script/script = ExtResource( 1 )
+__meta__ = { "__editor_plugin_screen__":"Script" }
+
+[node name="background" type="Sprite" parent="."]
+
+transform/pos = Vector2( 512, 384 )
+texture = SubResource( 1 )
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+
+margin/right = 1024.0
+margin/bottom = 768.0
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+theme/theme = ExtResource( 2 )
+use_top_left = false
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+
+margin/left = 312.0
+margin/top = 299.0
+margin/right = 712.0
+margin/bottom = 468.0
+focus/ignore_mouse = false
+focus/stop_mouse = false
+size_flags/horizontal = 2
+size_flags/vertical = 2
+custom_constants/separation = 15
+alignment = 0
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer"]
+
+margin/right = 400.0
+margin/bottom = 28.0
+rect/min_size = Vector2( 400, 13 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+text = "GAME_OVER"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Score" type="Label" parent="CenterContainer/VBoxContainer"]
+
+margin/top = 43.0
+margin/right = 400.0
+margin/bottom = 71.0
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+custom_colors/font_color = Color( 0, 0.436197, 0, 1 )
+text = "Score :  0"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="play_again" type="Button" parent="CenterContainer/VBoxContainer"]
+
+margin/top = 86.0
+margin/right = 400.0
+margin/bottom = 120.0
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+toggle_mode = false
+text = "BTN_PLAY_AGAIN"
+flat = false
+
+[node name="main_menu" type="Button" parent="CenterContainer/VBoxContainer"]
+
+margin/top = 135.0
+margin/right = 400.0
+margin/bottom = 169.0
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+toggle_mode = false
+text = "BTN_MAIN_MENU"
+flat = false
+
+[node name="HiScoreDialog" parent="CenterContainer" instance=ExtResource( 3 )]
+
+visibility/visible = false
+margin/left = 512.0
+margin/top = 384.0
+margin/right = 512.0
+margin/bottom = 384.0
+
+[connection signal="pressed" from="CenterContainer/VBoxContainer/play_again" to="." method="_on_play_again_pressed"]
+
+[connection signal="pressed" from="CenterContainer/VBoxContainer/main_menu" to="." method="_on_main_menu_pressed"]
+
+

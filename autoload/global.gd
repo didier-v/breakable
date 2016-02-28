@@ -24,8 +24,10 @@ extends Node
 
 
 
-#autoload
-var mod_scener #autoload script to manage scenes
+#autoload singletons 
+#mod_scener #autoload script to manage scenes
+
+
 var score # score of the current game
 var brick_texture #array of brick textures 
 var bonus_texture #dictionary of bonus textures
@@ -82,25 +84,25 @@ func _ready():
 	]
 
 	randomize()
-	mod_scener = get_node("/root/mod_scener")
+	#mod_scener = get_node("/root/mod_scener")
 
 
 	
 #SCENE MANAGEMENT
 func new_game():
-	mod_scener.fastload("res://board/board.scn")
+	mod_scener.fastload("res://board/board.tscn")
 
 func load_menu():
-	mod_scener.fastload("res://menu/menu.scn")
+	mod_scener.fastload("res://menu/menu.tscn")
 	
 func load_hi_scores():
-	mod_scener.fastload("res://hi_scores/hi_scores.scn")
+	mod_scener.fastload("res://hi_scores/hi_scores.tscn")
 
 func load_options():
-	mod_scener.fastload("res://options/options.scn")
+	mod_scener.fastload("res://options/options.tscn")
 
 func load_game_over(score):
-	mod_scener.fastload("res://game_over/game_over.scn")
+	mod_scener.fastload("res://game_over/game_over.tscn")
 	
 func quit():
 	get_tree().quit()

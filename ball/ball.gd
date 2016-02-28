@@ -1,14 +1,16 @@
 
 extends RigidBody2D
 
+#autoload singletons 
+#nc # notification center
 
-var nc # notification center
+
 var speed setget set_speed, get_speed # ball speed
 var active setget set_active #boolean true is ball is active (playing)
 var relative_pos  # vector2: ball position relative to the paddle, used to calculate the bounce angle
 
 func _ready():
-	nc = get_node("/root/nc")
+
 	set_active(false)
 	nc.add_observer(self,"paddle_hit","paddle_hit") #What the ball should do when it hits the paddle
 	nc.add_observer(self,"paddle_moved","follow_paddle") #when game starts (or sticky bonus), the ball follows the paddle

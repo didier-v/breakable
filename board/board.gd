@@ -1,14 +1,14 @@
 
 extends Node
 
-#autoload
-var global
-var nc
+#autoload singletons
+# global
+# nc
 
 #resources
-var pauseDialogResource
-var ballResource
-var bonusResource
+onready var pauseDialogResource = preload("res://PauseDialog/PauseDialog.tscn")
+onready var ballResource = preload("res://ball/ball.tscn")
+onready var bonusResource = preload("res://bonus/bonus.tscn")
 
 var current_level
 var playing # true if playing, false if about to start
@@ -22,14 +22,6 @@ var balls_in_game
 
 
 func _ready():
-	#autoload
-	global = get_node("/root/global")
-	nc = get_node("/root/nc")
-	
-	#resources
-	ballResource = preload("res://ball/ball.scn")
-	bonusResource = preload("res://bonus/bonus.scn")
-	pauseDialogResource = preload("res://PauseDialog/PauseDialog.scn") 
 
 	#notifications
 	nc.add_observer(self,"brick_hit","brick_hit")

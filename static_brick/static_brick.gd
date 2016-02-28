@@ -1,7 +1,8 @@
 
 extends Node2D
 
-var global
+#autoload singletons
+# global
 
 var bw
 var bh
@@ -9,7 +10,6 @@ var hp setget set_hp #bricks have hit points
 var current_hp setget set_current_hp
 
 func _ready():
-	global = get_node("/root/global")
 	bw=global.BRICK_WIDTH
 	bh=global.BRICK_HEIGHT
 	var body = get_node("brick_body")

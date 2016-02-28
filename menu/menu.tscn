@@ -1,0 +1,109 @@
+[gd_scene load_steps=4 format=1]
+
+[ext_resource path="res://menu/menu.gd" type="Script" id=1]
+[ext_resource path="res://themes/main.thm" type="Theme" id=2]
+
+[sub_resource type="ImageTexture" id=1]
+
+flags = 7
+image = Image()
+size = Vector2( 1024, 768 )
+storage = 0
+lossy_quality = 0.7
+
+[node name="menu" type="Node"]
+
+script/script = ExtResource( 1 )
+__meta__ = { "__editor_plugin_screen__":"Script" }
+
+[node name="background" type="Sprite" parent="."]
+
+transform/pos = Vector2( 512, 384 )
+texture = SubResource( 1 )
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+
+margin/right = 1024.0
+margin/bottom = 768.0
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+theme/theme = ExtResource( 2 )
+use_top_left = false
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+
+margin/left = 322.0
+margin/top = 293.0
+margin/right = 702.0
+margin/bottom = 474.0
+focus/ignore_mouse = false
+focus/stop_mouse = false
+size_flags/horizontal = 2
+size_flags/vertical = 2
+custom_constants/separation = 15
+alignment = 0
+
+[node name="btn_new_game" type="Button" parent="CenterContainer/VBoxContainer"]
+
+margin/right = 380.0
+margin/bottom = 34.0
+rect/min_size = Vector2( 380, 20 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+toggle_mode = false
+text = "BTN_NEW_GAME"
+flat = false
+
+[node name="btn_hi_scores" type="Button" parent="CenterContainer/VBoxContainer"]
+
+margin/top = 49.0
+margin/right = 380.0
+margin/bottom = 83.0
+rect/min_size = Vector2( 110, 20 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+toggle_mode = false
+text = "BTN_HI_SCORES"
+flat = false
+
+[node name="btn_options" type="Button" parent="CenterContainer/VBoxContainer"]
+
+margin/top = 98.0
+margin/right = 380.0
+margin/bottom = 132.0
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+toggle_mode = false
+text = "BTN_OPTIONS"
+flat = false
+
+[node name="btn_quit" type="Button" parent="CenterContainer/VBoxContainer"]
+
+margin/top = 147.0
+margin/right = 380.0
+margin/bottom = 181.0
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+toggle_mode = false
+text = "BTN_QUIT"
+flat = false
+
+[connection signal="pressed" from="CenterContainer/VBoxContainer/btn_new_game" to="." method="_on_btn_new_game_pressed"]
+
+[connection signal="pressed" from="CenterContainer/VBoxContainer/btn_hi_scores" to="." method="_on_btn_hi_scores_pressed"]
+
+[connection signal="pressed" from="CenterContainer/VBoxContainer/btn_options" to="." method="_on_btn_options_pressed"]
+
+[connection signal="pressed" from="CenterContainer/VBoxContainer/btn_quit" to="." method="_on_btn_quit_pressed"]
+
+

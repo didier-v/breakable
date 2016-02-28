@@ -1,15 +1,14 @@
 
 extends Node
 
-var global
-var options
-var languages = ["en","fr"]
+#autoload singletons
+# global
+
+onready var options = get_node("/root/options_manager").read_options()
+onready var languages = ["en","fr"]
 
 
 func _ready():
-	global = get_node("/root/global")
-	options = get_node("/root/options_manager").read_options()
-	
 	var languageOption = get_node("GridContainer/LanguageOption")
 	var currentLang = TranslationServer.get_locale()
 	for i in range(languages.size()):

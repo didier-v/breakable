@@ -1,0 +1,168 @@
+[gd_scene load_steps=19 format=1]
+
+[ext_resource path="res://board/board.gd" type="Script" id=1]
+[ext_resource path="res://bonus_effect_manager/bonus_effect_manager.tscn" type="PackedScene" id=2]
+[ext_resource path="res://board/background_material.res" type="CanvasItemMaterial" id=3]
+[ext_resource path="res://board/arealost.gd" type="Script" id=4]
+[ext_resource path="res://board/collision.gd" type="Script" id=5]
+[ext_resource path="res://level/level.tscn" type="PackedScene" id=6]
+[ext_resource path="res://wall/wall.tscn" type="PackedScene" id=7]
+[ext_resource path="res://game_ui/game_ui.tscn" type="PackedScene" id=8]
+[ext_resource path="res://paddle/paddle.tscn" type="PackedScene" id=9]
+[ext_resource path="res://board/ricasso.fnt" type="Font" id=10]
+[ext_resource path="res://sons/brick01.smp" type="Sample" id=11]
+[ext_resource path="res://sons/pad.smp" type="Sample" id=12]
+[ext_resource path="res://sons/wall.smp" type="Sample" id=13]
+
+
+
+
+
+
+[sub_resource type="ImageTexture" id=5]
+
+flags = 7
+image = Image()
+size = Vector2( 1024, 768 )
+storage = 0
+lossy_quality = 0.7
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 512, 5 )
+
+[sub_resource type="Animation" id=2]
+
+length = 3.0
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("paddle:sticky")
+tracks/0/interp = 1
+tracks/0/keys = { "cont":false, "times":FloatArray( 0, 3 ), "transitions":FloatArray( 1, 1 ), "values":[ true, false ] }
+
+[sub_resource type="Animation" id=3]
+
+length = 2.0
+loop = false
+step = 0.1
+tracks/0/type = "method"
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/keys = { "times":FloatArray( 2 ), "transitions":FloatArray( 1 ), "values":[ { "args":[  ], "method":"init_level" } ] }
+
+[sub_resource type="SampleLibrary" id=4]
+
+samples/brick = { "db":0.0, "pitch":1.0, "sample":ExtResource( 11 ) }
+samples/wall = { "db":0.0, "pitch":1.0, "sample":ExtResource( 13 ) }
+samples/paddle = { "db":0.0, "pitch":1.0, "sample":ExtResource( 12 ) }
+
+[node name="board" type="Node"]
+
+script/script = ExtResource( 1 )
+__meta__ = { "__editor_plugin_screen__":"Script", "_editor_collapsed":true }
+
+[node name="bonus_effect_manager" parent="." instance=ExtResource( 2 )]
+
+[node name="background" type="Sprite" parent="."]
+
+material/material = ExtResource( 3 )
+transform/pos = Vector2( 512, 384 )
+texture = SubResource( 5 )
+
+[node name="area_lost" type="Area2D" parent="."]
+
+transform/pos = Vector2( 514.456, 736.476 )
+input/pickable = true
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 1, -0, 0, 1, 0, 0 )
+shapes/0/trigger = false
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+collision/mask = 3
+script/script = ExtResource( 4 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="area_lost"]
+
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = -1
+script/script = ExtResource( 5 )
+
+[node name="level" parent="." instance=ExtResource( 6 )]
+
+[node name="left_wall" parent="." instance=ExtResource( 7 )]
+
+transform/pos = Vector2( 5, 384 )
+orientation = "vertical"
+color = Color( 0, 0.336708, 0, 1 )
+length = 768.0
+
+[node name="top_wall" parent="." instance=ExtResource( 7 )]
+
+transform/pos = Vector2( 512, 5 )
+orientation = "horizontal"
+color = Color( 0, 0.333333, 0, 1 )
+length = 1024.0
+
+[node name="right_wall" parent="." instance=ExtResource( 7 )]
+
+transform/pos = Vector2( 1019, 384 )
+orientation = "vertical"
+color = Color( 0, 0.333333, 0, 1 )
+length = 768.0
+
+[node name="game_ui" parent="." instance=ExtResource( 8 )]
+
+transform/pos = Vector2( 21.766, 723.719 )
+
+[node name="paddle" parent="." instance=ExtResource( 9 )]
+
+transform/pos = Vector2( 512, 700 )
+sticky = false
+
+[node name="board_animation" type="AnimationPlayer" parent="."]
+
+playback/process_mode = 1
+playback/default_blend_time = 0.0
+root/root = NodePath("..")
+anims/bonus_sticky = SubResource( 2 )
+anims/level_transition = SubResource( 3 )
+playback/active = true
+playback/speed = 1.0
+blend_times = [  ]
+autoplay = ""
+
+[node name="level_complete" type="Label" parent="."]
+
+anchor/right = 1
+anchor/bottom = 1
+margin/right = 5.0
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+custom_fonts/font = ExtResource( 10 )
+custom_colors/font_color = Color( 0.142857, 0.142857, 0.142857, 1 )
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="sound" type="SamplePlayer2D" parent="."]
+
+params/volume_db = 0.0
+params/pitch_scale = 1.0
+params/attenuation/min_distance = 1.0
+params/attenuation/max_distance = 2048.0
+params/attenuation/distance_exp = 1.0
+config/polyphony = 1
+config/samples = SubResource( 4 )
+config/pitch_random = 0.0
+
+[connection signal="body_enter" from="area_lost" to="." method="_on_area_lost_body_enter"]
+
+

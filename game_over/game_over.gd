@@ -1,12 +1,10 @@
 extends Node2D
 
-#autoload
-var global
-var hsm
+#autoload singletons
+# global
+# hsm (hi scores manager
 
 func _ready():
-	global = get_node("/root/global")
-	hsm = get_node("/root/hi_scores_manager")
 	
 	get_node("CenterContainer/VBoxContainer/Score").set_text(tr("SCORE")+" : "+str(global.score))
 

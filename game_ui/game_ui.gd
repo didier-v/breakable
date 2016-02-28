@@ -1,13 +1,11 @@
 
 extends Node2D
 
-#autoload
-var global
-var nc
+#autoload singletons
+# global
+# nc
 
 func _ready():
-	global = get_node("/root/global")
-	nc = get_node("/root/nc")
 	nc.add_observer(self,"show_bonus_message","show_bonus_message")
 
 func _exit_tree():

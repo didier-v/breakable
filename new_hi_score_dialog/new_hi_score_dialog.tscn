@@ -1,0 +1,126 @@
+[gd_scene load_steps=3 format=1]
+
+[ext_resource path="res://themes/main.thm" type="Theme" id=1]
+[ext_resource path="res://new_hi_score_dialog/new_hi_score_dialog.gd" type="Script" id=2]
+
+[node name="HiScoreDialog" type="PopupDialog"]
+
+margin/right = 500.0
+margin/bottom = 240.0
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+theme/theme = ExtResource( 1 )
+popup/exclusive = true
+script/script = ExtResource( 2 )
+__meta__ = { "__editor_plugin_screen__":"Script" }
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+
+anchor/right = 1
+anchor/bottom = 1
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+use_top_left = false
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+
+margin/left = 77.0
+margin/top = 16.0
+margin/right = 422.0
+margin/bottom = 224.0
+focus/ignore_mouse = false
+focus/stop_mouse = false
+size_flags/horizontal = 2
+size_flags/vertical = 2
+alignment = 0
+
+[node name="newHiScore" type="Label" parent="CenterContainer/VBoxContainer"]
+
+margin/right = 345.0
+margin/bottom = 28.0
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+custom_colors/font_color = Color( 0, 1, 0, 1 )
+text = "NEW_HI_SCORE"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="scoreLabel" type="Label" parent="CenterContainer/VBoxContainer"]
+
+margin/top = 34.0
+margin/right = 345.0
+margin/bottom = 62.0
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+custom_colors/font_color = Color( 0, 1, 0, 1 )
+text = "0"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="enterYourName" type="Label" parent="CenterContainer/VBoxContainer"]
+
+margin/top = 68.0
+margin/right = 345.0
+margin/bottom = 96.0
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+text = "ENTER_YOUR_NAME"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="LineEdit" type="LineEdit" parent="CenterContainer/VBoxContainer"]
+
+margin/top = 102.0
+margin/right = 345.0
+margin/bottom = 140.0
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+text = "Breakable"
+max_length = 20
+editable = true
+secret = false
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/VBoxContainer"]
+
+margin/top = 146.0
+margin/right = 345.0
+margin/bottom = 166.0
+rect/min_size = Vector2( 0, 20 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+
+[node name="ButtonOK" type="Button" parent="CenterContainer/VBoxContainer"]
+
+margin/left = 99.0
+margin/top = 172.0
+margin/right = 246.0
+margin/bottom = 208.0
+rect/min_size = Vector2( 80, 36 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 1
+size_flags/vertical = 2
+toggle_mode = false
+text = "BTN_OK"
+flat = false
+
+[connection signal="pressed" from="CenterContainer/VBoxContainer/ButtonOK" to="." method="_on_ButtonOK_pressed"]
+
+

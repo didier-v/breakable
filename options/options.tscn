@@ -1,0 +1,129 @@
+[gd_scene load_steps=3 format=1]
+
+[ext_resource path="res://options/options.gd" type="Script" id=1]
+[ext_resource path="res://themes/main.thm" type="Theme" id=2]
+
+[node name="Options" type="Node"]
+
+script/script = ExtResource( 1 )
+__meta__ = { "__editor_plugin_screen__":"Script" }
+
+[node name="main_menu" type="Button" parent="."]
+
+anchor/left = 3
+anchor/top = 1
+anchor/right = 3
+anchor/bottom = 1
+margin/left = 162.0
+margin/top = 88.0
+margin/right = -158.0
+margin/bottom = 52.0
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+theme/theme = ExtResource( 2 )
+toggle_mode = false
+text = "BTN_MAIN_MENU"
+flat = false
+
+[node name="Label" type="Label" parent="."]
+
+anchor/left = 3
+anchor/right = 3
+margin/left = 150.0
+margin/top = 40.0
+margin/right = -150.0
+margin/bottom = 68.0
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+theme/theme = ExtResource( 2 )
+text = "BTN_OPTIONS"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="GridContainer" type="GridContainer" parent="."]
+
+anchor/left = 3
+anchor/right = 3
+margin/left = 200.0
+margin/top = 100.0
+margin/right = -200.0
+margin/bottom = 140.0
+rect/min_size = Vector2( 80, 40 )
+focus/ignore_mouse = false
+focus/stop_mouse = false
+size_flags/horizontal = 2
+size_flags/vertical = 2
+theme/theme = ExtResource( 2 )
+columns = 2
+
+[node name="LanguageLabel" type="Label" parent="GridContainer"]
+
+margin/top = 4.0
+margin/right = 246.0
+margin/bottom = 32.0
+rect/min_size = Vector2( 230, 0 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+text = "LANGUAGE"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="LanguageOption" type="OptionButton" parent="GridContainer"]
+
+margin/left = 250.0
+margin/right = 350.0
+margin/bottom = 36.0
+rect/min_size = Vector2( 100, 0 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+theme/theme = ExtResource( 2 )
+custom_constants/hseparation = 20
+toggle_mode = false
+flat = false
+selected = -1
+items = [  ]
+
+[node name="screenLabel" type="Label" parent="GridContainer"]
+
+margin/top = 44.0
+margin/right = 246.0
+margin/bottom = 72.0
+rect/min_size = Vector2( 230, 0 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+text = "FULL_SCREEN"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="screenOption" type="CheckButton" parent="GridContainer"]
+
+margin/left = 250.0
+margin/top = 40.0
+margin/right = 350.0
+margin/bottom = 76.0
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+toggle_mode = true
+flat = false
+align = 0
+
+[connection signal="pressed" from="main_menu" to="." method="_on_main_menu_pressed"]
+
+[connection signal="item_selected" from="GridContainer/LanguageOption" to="." method="_on_LanguageOption_item_selected"]
+
+[connection signal="toggled" from="GridContainer/screenOption" to="." method="_on_screenOption_toggled"]
+
+

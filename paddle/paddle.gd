@@ -1,9 +1,9 @@
 
 extends Node2D
 
-#autoload
-var nc
-var global
+#autoload singletons
+# nc
+# global
 
 var center #of the viewport
 export(float) var paddle_width=0 setget set_paddle_width
@@ -11,8 +11,6 @@ var paddle_height=15
 export(bool) var sticky setget set_sticky
 
 func _ready():
-	nc = get_node("/root/nc")
-	global = get_node("/root/global")
 	
 	paddle_width=global.INITIAL_PADDLE_WIDTH
 	#paddle initial pos

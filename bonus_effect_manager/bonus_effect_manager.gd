@@ -1,19 +1,14 @@
 
 extends Node
 
-#autoload
-var global
-var nc
+#autoload singletons
+# global
+# nc
 
-var board
-var current_effect
+onready var board = get_parent()
+onready var current_effect = ""
 
-func _ready():
-	global = get_node("/root/global")
-	nc = get_node("/root/nc")
-	current_effect=""
-	board = get_parent()
-	
+
 func apply_effect(effect):
 	if(effect!=""):
 		fire_effect() #fire previous effect if it can

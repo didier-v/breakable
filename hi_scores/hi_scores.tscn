@@ -1,0 +1,132 @@
+[gd_scene load_steps=4 format=1]
+
+[ext_resource path="res://hi_scores/hi_scores.gd" type="Script" id=1]
+[ext_resource path="res://themes/main.thm" type="Theme" id=2]
+
+[sub_resource type="ImageTexture" id=1]
+
+flags = 7
+image = Image()
+size = Vector2( 1024, 768 )
+storage = 0
+lossy_quality = 0.7
+
+[node name="hiscores" type="Node"]
+
+script/script = ExtResource( 1 )
+__meta__ = { "__editor_plugin_screen__":"Script" }
+
+[node name="background" type="Sprite" parent="."]
+
+visibility/visible = false
+texture = SubResource( 1 )
+centered = false
+
+[node name="main_menu" type="Button" parent="."]
+
+anchor/left = 3
+anchor/top = 1
+anchor/right = 3
+anchor/bottom = 1
+margin/left = 150.0
+margin/top = 88.0
+margin/right = -150.0
+margin/bottom = 60.0
+rect/min_size = Vector2( 150, 36 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+theme/theme = ExtResource( 2 )
+toggle_mode = false
+text = "BTN_MAIN_MENU"
+flat = false
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+
+anchor/right = 1
+anchor/bottom = 1
+margin/left = 200.0
+margin/top = 90.0
+margin/right = 200.0
+margin/bottom = 110.0
+focus/ignore_mouse = false
+focus/stop_mouse = false
+size_flags/horizontal = 2
+size_flags/vertical = 2
+theme/theme = ExtResource( 2 )
+alignment = 0
+
+[node name="title" type="Label" parent="VBoxContainer"]
+
+visibility/behind_parent = true
+margin/right = 624.0
+margin/bottom = 34.0
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 3
+size_flags/vertical = 3
+theme/theme = ExtResource( 2 )
+text = "HI_SCORES"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="GridContainer" type="GridContainer" parent="VBoxContainer"]
+
+margin/top = 40.0
+margin/right = 624.0
+margin/bottom = 568.0
+rect/min_size = Vector2( 624, 528 )
+focus/ignore_mouse = false
+focus/stop_mouse = false
+size_flags/horizontal = 2
+size_flags/vertical = 2
+columns = 3
+
+[node name="pos" type="Label" parent="VBoxContainer/GridContainer"]
+
+margin/right = 60.0
+margin/bottom = 30.0
+rect/min_size = Vector2( 60, 30 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+custom_colors/font_color = Color( 0, 0.546653, 0, 1 )
+align = 2
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="name" type="Label" parent="VBoxContainer/GridContainer"]
+
+margin/left = 64.0
+margin/right = 414.0
+margin/bottom = 30.0
+rect/min_size = Vector2( 350, 30 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+custom_colors/font_color = Color( 0, 0.588832, 0, 1 )
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="score" type="Label" parent="VBoxContainer/GridContainer"]
+
+margin/left = 418.0
+margin/right = 568.0
+margin/bottom = 30.0
+rect/min_size = Vector2( 150, 30 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+align = 2
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[connection signal="pressed" from="main_menu" to="." method="_on_main_menu_pressed"]
+
+

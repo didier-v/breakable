@@ -1,7 +1,9 @@
 extends "res://level/generic_level.gd"
 
+#autoload singletons
+# global
 
-func init_level(levelNode,global):
+func init_level(levelNode):
 	var brick_array = {
 		0:[0,0,1,1,0,0,0,1,1,0,0],
 		1:[0,1,0,0,0,0,1,0,0,1,0],

@@ -1,14 +1,12 @@
-
 extends Popup
 
-var global
-var delegate  #the delegate object can define the callback functions
+onready var delegate  = self 
+#the delegate object can define the callback functions
+#it should be set by the object creating the PauseDialog
 
 func _ready():
-	global = get_node("/root/global")
 	set_process_input(true)
-	delegate = self # should be set by the object creating the PauseDialog
-	
+
 func _draw():
 	draw_rect(self.get_item_rect(),Color(1,1,1,.5))
 	

@@ -1,11 +1,12 @@
 
 extends RigidBody2D
 
+#autoload singletons
+# global
+
 var effect
-var global
+
 func _ready():
-	global = get_node("/root/global")
-	
 	var sum=0 #sum of bonus coefficients
 	for i in global.bonus_effect:
 		sum+=global.bonus_effect[i]
