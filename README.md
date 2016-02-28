@@ -3,6 +3,11 @@ A breakout-like game made with Godot Engine
 
 I made this game to learn Godot and test various features.
 
+### New with Godot 2.0
+ - tscn format readable scenes
+ - autoload singletons
+ - onready option
+
 ### Things I learned
  - Autoload magic
  - How to switch scenes with [mod_scener](http://godotengine.de/en/script_modules/mod_scener) 
