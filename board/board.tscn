@@ -2,7 +2,7 @@
 
 [ext_resource path="res://board/board.gd" type="Script" id=1]
 [ext_resource path="res://bonus_effect_manager/bonus_effect_manager.tscn" type="PackedScene" id=2]
-[ext_resource path="res://board/background_material.res" type="CanvasItemMaterial" id=3]
+[ext_resource path="res://materials/background_material.tres" type="CanvasItemMaterial" id=3]
 [ext_resource path="res://board/arealost.gd" type="Script" id=4]
 [ext_resource path="res://board/collision.gd" type="Script" id=5]
 [ext_resource path="res://level/level.tscn" type="PackedScene" id=6]
@@ -13,6 +13,7 @@
 [ext_resource path="res://sons/brick01.smp" type="Sample" id=11]
 [ext_resource path="res://sons/pad.smp" type="Sample" id=12]
 [ext_resource path="res://sons/wall.smp" type="Sample" id=13]
+
 
 
 
