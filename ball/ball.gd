@@ -76,6 +76,7 @@ func follow_paddle(object,action,data):
 		pos.y=pos.y-12
 	else:
 		pos=pos+relative_pos #sticky bonus again. we want ball to stick to the hit point of the paddle
+	pos.x=clamp(pos.x,15,get_viewport_rect().size.x-15)
 	set_pos(pos)
 
 func set_active(is_active):
