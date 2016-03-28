@@ -38,6 +38,7 @@ var bonus_message #dictionary of bonus messages
 const BRICK_WIDTH = 86
 const BRICK_HEIGHT = 37
 const INITIAL_PADDLE_WIDTH = 100
+const PADDLE_HEIGHT=15
 const MAX_LEVEL = 2
 
 func _ready():

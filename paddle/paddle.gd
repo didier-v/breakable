@@ -6,8 +6,8 @@ extends Node2D
 # global
 
 var center #of the viewport
+
 export(float) var paddle_width=0 setget set_paddle_width
-var paddle_height=15
 export(bool) var sticky setget set_sticky
 
 func _ready():
@@ -62,7 +62,7 @@ func update_paddle():
 	if(paddle_area!=null):
 		paddle_area.clear_shapes() #remove previous shape
 		var r = RectangleShape2D.new()
-		r.set_extents(Vector2(paddle_width/2,paddle_height/2)) 
+		r.set_extents(Vector2(paddle_width/2,global.PADDLE_HEIGHT/2)) 
 		paddle_area.add_shape(r) #define new rectangle shape
 		update()
 
