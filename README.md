@@ -3,6 +3,9 @@ A breakout-like game made with Godot Engine
 
 I made this game to learn Godot and test various features.
 
+### New with Godot 2.1
+ - tres format for theme
+
 ### New with Godot 2.0
  - tscn format readable scenes
  - autoload singletons
