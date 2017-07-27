@@ -1,4 +1,4 @@
-extends Popup
+extends Panel
 
 
 var delegate

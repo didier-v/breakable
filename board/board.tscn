@@ -9,18 +9,12 @@
 [ext_resource path="res://wall/wall.tscn" type="PackedScene" id=7]
 [ext_resource path="res://game_ui/game_ui.tscn" type="PackedScene" id=8]
 [ext_resource path="res://paddle/paddle.tscn" type="PackedScene" id=9]
-[ext_resource path="res://board/ricasso.fnt" type="Font" id=10]
+[ext_resource path="res://board/ricasso.fnt" type="BitmapFont" id=10]
 [ext_resource path="res://sons/brick01.smp" type="Sample" id=11]
 [ext_resource path="res://sons/pad.smp" type="Sample" id=12]
 [ext_resource path="res://sons/wall.smp" type="Sample" id=13]
 
-
-
-
-
-
-
-[sub_resource type="ImageTexture" id=5]
+[sub_resource type="ImageTexture" id=1]
 
 flags = 7
 image = Image()
@@ -28,12 +22,12 @@ size = Vector2( 1024, 768 )
 storage = 0
 lossy_quality = 0.7
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="RectangleShape2D" id=2]
 
 custom_solver_bias = 0.0
 extents = Vector2( 512, 5 )
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id=3]
 
 length = 3.0
 loop = false
@@ -41,9 +35,15 @@ step = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("paddle:sticky")
 tracks/0/interp = 1
-tracks/0/keys = { "cont":false, "times":FloatArray( 0, 3 ), "transitions":FloatArray( 1, 1 ), "values":[ true, false ] }
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 0, 3 ),
+"transitions": FloatArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=4]
 
 length = 2.0
 loop = false
@@ -51,18 +51,43 @@ step = 0.1
 tracks/0/type = "method"
 tracks/0/path = NodePath(".")
 tracks/0/interp = 1
-tracks/0/keys = { "times":FloatArray( 2 ), "transitions":FloatArray( 1 ), "values":[ { "args":[  ], "method":"init_level" } ] }
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 2 ),
+"transitions": FloatArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "init_level"
+} ]
+}
 
-[sub_resource type="SampleLibrary" id=4]
+[sub_resource type="SampleLibrary" id=5]
 
-samples/brick = { "db":0.0, "pitch":1.0, "sample":ExtResource( 11 ) }
-samples/wall = { "db":0.0, "pitch":1.0, "sample":ExtResource( 13 ) }
-samples/paddle = { "db":0.0, "pitch":1.0, "sample":ExtResource( 12 ) }
+samples/brick = {
+"db": 0.0,
+"pitch": 1.0,
+"priority": 0,
+"sample": ExtResource( 11 )
+}
+samples/paddle = {
+"db": 0.0,
+"pitch": 1.0,
+"priority": 0,
+"sample": ExtResource( 12 )
+}
+samples/wall = {
+"db": 0.0,
+"pitch": 1.0,
+"priority": 0,
+"sample": ExtResource( 13 )
+}
 
 [node name="board" type="Node"]
 
 script/script = ExtResource( 1 )
-__meta__ = { "__editor_plugin_screen__":"Script", "_editor_collapsed":true }
+__meta__ = {
+"__editor_plugin_screen__": "Script"
+}
 
 [node name="bonus_effect_manager" parent="." instance=ExtResource( 2 )]
 
@@ -70,14 +95,14 @@ __meta__ = { "__editor_plugin_screen__":"Script", "_editor_collapsed":true }
 
 material/material = ExtResource( 3 )
 transform/pos = Vector2( 512, 384 )
-texture = SubResource( 5 )
+texture = SubResource( 1 )
 
 [node name="area_lost" type="Area2D" parent="."]
 
 transform/pos = Vector2( 514.456, 736.476 )
 input/pickable = true
-shapes/0/shape = SubResource( 1 )
-shapes/0/transform = Matrix32( 1, -0, 0, 1, 0, 0 )
+shapes/0/shape = SubResource( 2 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
 shapes/0/trigger = false
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
@@ -88,7 +113,7 @@ script/script = ExtResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="area_lost"]
 
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 trigger = false
 _update_shape_index = -1
 script/script = ExtResource( 5 )
@@ -130,8 +155,8 @@ sticky = false
 playback/process_mode = 1
 playback/default_blend_time = 0.0
 root/root = NodePath("..")
-anims/bonus_sticky = SubResource( 2 )
-anims/level_transition = SubResource( 3 )
+anims/bonus_sticky = SubResource( 3 )
+anims/level_transition = SubResource( 4 )
 playback/active = true
 playback/speed = 1.0
 blend_times = [  ]
@@ -141,10 +166,14 @@ autoplay = ""
 
 anchor/right = 1
 anchor/bottom = 1
-margin/right = 5.0
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 5.0
+margin/bottom = 0.0
 custom_fonts/font = ExtResource( 10 )
 custom_colors/font_color = Color( 0.142857, 0.142857, 0.142857, 1 )
 align = 1
@@ -161,7 +190,7 @@ params/attenuation/min_distance = 1.0
 params/attenuation/max_distance = 2048.0
 params/attenuation/distance_exp = 1.0
 config/polyphony = 1
-config/samples = SubResource( 4 )
+config/samples = SubResource( 5 )
 config/pitch_random = 0.0
 
 [connection signal="body_enter" from="area_lost" to="." method="_on_area_lost_body_enter"]

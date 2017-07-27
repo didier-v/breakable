@@ -5,6 +5,8 @@
 [node name="main" type="Node"]
 
 script/script = ExtResource( 1 )
-__meta__ = { "__editor_plugin_screen__":"3D" }
+__meta__ = {
+"__editor_plugin_screen__": "3D"
+}
 
 
