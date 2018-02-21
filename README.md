@@ -20,7 +20,7 @@ The Godot 2.x version is still available in the [Godot 2.1 branch](https://githu
 
 ### Things I learned
  - Autoload magic
- - How to switch scenes with [mod_scener](http://godotengine.de/en/script_modules/mod_scener) 
+ - How to switch scenes
  - Loading and saving a file (user options)
  - Loading and saving an encrypted file (hi scores)
  - How to manage multiple languages
@@ -42,5 +42,5 @@ This project also uses my [Godot Notification Center](https://github.com/didier-
 
 The sounds were made with [Cfxr](http://thirdcog.eu/apps/cfxr).
 
-#License
+# License
 MIT
