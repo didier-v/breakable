@@ -15,10 +15,10 @@ func apply_effect(effect):
 	current_effect = effect
 	var func_name = "apply_"+effect
 	if(has_method(func_name)):
-		nc.post_notification("show_bonus_message",effect)
+		nc.post_notification("show_bonus_message",effect) # let the ui know that an effect has been triggered
 		call(func_name)
 
-func fire_effect():
+func fire_effect(): ## some effects (like sticky) have a fire action
 	if(current_effect!=""):
 		var func_name = "fire_"+current_effect
 		if(has_method(func_name)):
@@ -40,18 +40,15 @@ func apply_extra_life():
 ####################
 #STICKY
 func apply_sticky():
-	var children=board.get_children()
-	for child in children:
-		if(child.get_meta("type")=="ball"):
-			child.set_active(false)
-	board.get_node("paddle").set_sticky(true)
+	board.sticky = true
 	
 func fire_sticky():
 	var children=board.get_children()
 	for child in children:
-		if(child.get_meta("type")=="ball"):
+		if  child.has_meta("type") && child.get_meta("type")=="ball":
 			child.set_active(true)
-	board.get_node("paddle").set_sticky(false)
+	board.sticky = false
+	board.unstick()
 	current_effect=""
 
 ####################
@@ -80,6 +77,6 @@ func apply_three_balls():
 	if(board.balls_in_game<=1):
 		var children=board.get_children()
 		for child in children:
-			if(child.get_meta("type")=="ball"):
+			if child.has_meta("type") && child.get_meta("type")=="ball":
 				board.clone_ball(child,2)
 	current_effect=""

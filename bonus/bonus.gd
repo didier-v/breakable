@@ -20,13 +20,14 @@ func _ready():
 			effect = i
 	
 	if(global.bonus_texture.has(effect)):
-		get_node("sprite").set_texture(global.bonus_texture[effect]) #the texture of the chosen bonus
+		$sprite.set_texture(global.bonus_texture[effect]) #the texture of the chosen bonus
 
 
 #func _draw(): #for tests only
 #	draw_circle(Vector2(),10,Color(0,0.8,0,1))
 #
 
+	
 func start():
 	set_linear_velocity(Vector2(0,150)) #immediate slow fall
 	

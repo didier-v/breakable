@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=1]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://ball/ball.gd" type="Script" id=1]
 [ext_resource path="res://ball/ball_sprite.gd" type="Script" id=2]
@@ -6,19 +6,16 @@
 [sub_resource type="CircleShape2D" id=1]
 
 custom_solver_bias = 0.0
-radius = 10.0
+radius = 5.0
 
 [node name="ball" type="RigidBody2D"]
 
-input/pickable = false
-shapes/0/shape = SubResource( 1 )
-shapes/0/transform = Matrix32( 1, -0, 0, 1, 0, 0 )
-shapes/0/trigger = false
-collision/layers = 1
-collision/mask = 0
-mode = 2
+input_pickable = false
+collision_layer = 1
+collision_mask = 0
+mode = 0
 mass = 1.0
-friction = 1.0
+friction = 0.0
 bounce = 1.0
 gravity_scale = 1.0
 custom_integrator = false
@@ -27,25 +24,24 @@ contacts_reported = 1
 contact_monitor = true
 sleeping = false
 can_sleep = true
-velocity/linear = Vector2( 0, 0 )
-velocity/angular = 0.0
-damp_override/linear = 0.0
-damp_override/angular = 0.0
-script/script = ExtResource( 1 )
-__meta__ = { "__editor_plugin_screen__":"Script" }
+linear_velocity = Vector2( 0, 0 )
+linear_damp = -1.0
+angular_velocity = 0.0
+angular_damp = -1.0
+script = ExtResource( 1 )
+_sections_unfolded = [ "Collision", "Transform" ]
 
-[node name="Sprite" type="Sprite" parent="."]
+[node name="Sprite" type="Sprite" parent="." index="0"]
 
-script/script = ExtResource( 2 )
+script = ExtResource( 2 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
 
 shape = SubResource( 1 )
-trigger = false
-_update_shape_index = -1
+_sections_unfolded = [ "Transform" ]
 
-[connection signal="body_enter" from="." to="." method="body_enter"]
+[connection signal="body_entered" from="." to="." method="_on_ball_body_entered"]
 
-[connection signal="body_exit" from="." to="." method="_on_ball_body_exit"]
+[connection signal="body_exited" from="." to="." method="_on_ball_body_exited"]
 
 

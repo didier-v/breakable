@@ -6,37 +6,32 @@ extends Node
 # hsm
 
 func _ready():
-
-	#list is made of 3 text nodes
-	var pos=get_node("VBoxContainer/GridContainer/pos")
-	var name=get_node("VBoxContainer/GridContainer/name")
-	var score=get_node("VBoxContainer/GridContainer/score")
-
 	var i=1
-	var posText=""
-	var nameText=""
-	var scoreText=""
+	var pos_text=""
+	var name_text=""
+	var score_text=""
 
 	for i in range (hsm.score_names.size()): #read the current list
-		var posLabel = Label.new()
-		posLabel.set_text(str(i+1)+".")
-		posLabel.set_align(Label.ALIGN_RIGHT)
+		var pos_label = Label.new()
+		pos_label.text = str(i+1)+"."
+		pos_label.align = Label.ALIGN_RIGHT
 
-		posText = posText+str(i+1)+".\n"
+		pos_text = pos_text+str(i+1)+".\n"
 		
-		var namelabel = Label.new()
-		namelabel.set_text(hsm.score_names[i])
-		namelabel.set_size(Vector2(800,30))
-		nameText = nameText+hsm.score_names[i]+"\n"
+		var name_label = Label.new()
+		name_label.text = hsm.score_names[i]
+		name_label.set_size(Vector2(800,30))
+		name_text = name_text+hsm.score_names[i]+"\n"
 
-		var scorelabel = Label.new()
-		scorelabel.set_text(str(hsm.score_values[i]))
-		scorelabel.set_align(Label.ALIGN_RIGHT)
-		scoreText = scoreText+str(hsm.score_values[i])+"ı•\n"
+		var score_label = Label.new()
+		score_label.text = str(hsm.score_values[i])
+		score_label.align = Label.ALIGN_RIGHT
+		score_text = score_text+str(hsm.score_values[i])+"ı•\n"
 
-	pos.set_text(posText)
-	name.set_text(nameText)
-	score.set_text(scoreText)
+	#list is made of 3 text nodes
+	$VBoxContainer/GridContainer/Pos.text = pos_text
+	$VBoxContainer/GridContainer/Name.text = name_text
+	$VBoxContainer/GridContainer/Score.text = score_text
 
-func _on_main_menu_pressed():
+func _on_MainMenu_pressed():
 	global.load_menu()

@@ -4,7 +4,7 @@ extends Node
 func read_options():
 	var options = {}
 	var f = File.new()
-	if(f.file_exists("user://options.data")):
+	if f.file_exists("user://options.data"):
 		var err = f.open("user://options.data",File.READ)
 		options = f.get_var()
 		f.close()

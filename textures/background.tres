@@ -1,0 +1,9 @@
+[gd_resource type="ImageTexture" format=2]
+
+[resource]
+
+flags = 7
+size = Vector2( 1024, 768 )
+storage = 0
+lossy_quality = 0.7
+

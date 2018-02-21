@@ -1,12 +1,9 @@
 
+tool
 extends Sprite
 
-var position
-var radius
+export var radius=5
 
-func _ready():
-	position=Vector2(0,0);
-	radius = 5;
 
 func _draw():
 	draw_circle(position,radius, Color(1,1,1))

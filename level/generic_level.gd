@@ -1,14 +1,14 @@
 extends Reference
 
 var separation
-var brique
+var brick
 
 
 func _init():
-	brique = load("res://static_brick/static_brick.tscn")
+	brick = load("res://static_brick/static_brick.tscn")
 	separation=1
 
 
-func init_level(levelNode):
+func init_level(level_node):
 	#each level file must define this function
 	pass

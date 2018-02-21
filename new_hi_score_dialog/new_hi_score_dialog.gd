@@ -1,19 +1,19 @@
 extends Panel
 
 
-var delegate
+var delegate #defined
 var score setget setScore
 
 func _ready():
-	var line_edit = get_node("CenterContainer/VBoxContainer/LineEdit")
+	var line_edit = $CenterContainer/VBoxContainer/LineEdit
 	line_edit.select_all()
 	line_edit.grab_focus()
 
 func _on_ButtonOK_pressed():
-	var name = get_node("CenterContainer/VBoxContainer/LineEdit").get_text()
-	delegate.close_hi_score_dialog(self,name)
+	var playername = $CenterContainer/VBoxContainer/LineEdit.text
+	if delegate.has_method("close_hi_score_dialog"):
+		delegate.close_hi_score_dialog(self,playername)
 
 func setScore(newScore):
-	score = newScore
-	get_node("CenterContainer/VBoxContainer/scoreLabel").set_text(str(score))
+	$CenterContainer/VBoxContainer/score_label.text = str(newScore)
 

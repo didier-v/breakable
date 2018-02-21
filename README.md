@@ -3,10 +3,17 @@ A breakout-like game made with Godot Engine
 
 I made this game to learn Godot and test various features.
 
-### New with Godot 2.1
+### Godot 3.0
+The master branch is now compatible with Godot 3.0
+The Godot 2.x version is still available in the [Godot 2.1 branch](https://github.com/didier-v/breakable/tree/Godot-2.1).
+ - new $ syntax for get_nodes
+ - rewrote code incompatible with the new physics engine
+ - small fixes and improvements
+
+### Godot 2.1
  - tres format for theme
 
-### New with Godot 2.0
+### Godot 2.0
  - tscn format readable scenes
  - autoload singletons
  - onready option
@@ -19,12 +26,14 @@ I made this game to learn Godot and test various features.
  - How to manage multiple languages
  - How to use fonts
  - How to use a theme
+ - Window / Full screen
  - How to import and play sounds
  - Physics and collisions 2D
  - Collisions layers
  - How to add and remove instances with code
  - Connect an event on a UI element to a script
  - Use animations on UI elements
+ - Animation with call function track
  - How to make a generic, reusable canvas item (see walls)
  - How to use a shader as a background
 	

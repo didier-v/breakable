@@ -6,8 +6,8 @@ extends Node
 #bonus 2  , no mask 
 #brick 3, mask 1
 #paddle 1,2, mask 1,2
-#TODO
 
+#more ideas...
 # bonus aleatoires
 #		fog
 #		"ghost":5,
@@ -22,10 +22,6 @@ extends Node
 # hi score
 # bonus temps sur un niveau
 
-
-
-#autoload singletons 
-#mod_scener #autoload script to manage scenes
 
 
 var score # score of the current game
@@ -61,7 +57,7 @@ func _ready():
 		"extra_life":5,
 		"small_paddle":15,
 		"big_paddle":15,
-#		"ninja_stars":10,
+#		"ninja_stars":10, ## More ideas
 #		"ghost":5,
 #		"fog":10
 	}
@@ -90,20 +86,21 @@ func _ready():
 
 	
 #SCENE MANAGEMENT
+
 func new_game():
-	mod_scener.fastload("res://board/board.tscn")
+	get_tree().change_scene("res://board/board.tscn")
 
 func load_menu():
-	mod_scener.fastload("res://menu/menu.tscn")
+	get_tree().change_scene("res://menu/menu.tscn")
 	
 func load_hi_scores():
-	mod_scener.fastload("res://hi_scores/hi_scores.tscn")
+	get_tree().change_scene("res://hi_scores/hi_scores.tscn")
 
 func load_options():
-	mod_scener.fastload("res://options/options.tscn")
+	get_tree().change_scene("res://options/options.tscn")
 
 func load_game_over(score):
-	mod_scener.fastload("res://game_over/game_over.tscn")
+	get_tree().change_scene("res://game_over/game_over.tscn")
 	
 func quit():
 	get_tree().quit()

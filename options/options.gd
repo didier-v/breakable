@@ -4,34 +4,32 @@ extends Node
 #autoload singletons
 # global
 
-onready var options = get_node("/root/options_manager").read_options()
+onready var options = $"/root/options_manager".read_options()
 onready var languages = ["en","fr"]
 
-
 func _ready():
-	var languageOption = get_node("GridContainer/LanguageOption")
 	var currentLang = TranslationServer.get_locale()
 	for i in range(languages.size()):
-		languageOption.add_item(languages[i],i)
+		$GridContainer/LanguageOption.add_item(languages[i],i)
 		if(languages[i]==currentLang):
-			languageOption.select(i)
+			$GridContainer/LanguageOption.select(i)
 	
 	if(OS.is_window_fullscreen()):
-		get_node("GridContainer/screenOption").set_pressed(true)
+		$GridContainer/ScreenOption.pressed = true
 		
 
-func _on_main_menu_pressed():
+func _on_MainMenu_pressed():
 	global.load_menu()
 
-func _on_LanguageOption_item_selected( ID ):
-	TranslationServer.set_locale(languages[ID])
-	options["locale"]=languages[ID]
-	get_node("/root/options_manager").write_options(options)
+func _on_LanguageOption_item_selected( id ):
+	TranslationServer.set_locale(languages[id])
+	options["locale"]=languages[id]
+	$"/root/options_manager".write_options(options)
 	global.load_options() #reload the scene when language changes
 
 
-func _on_screenOption_toggled( pressed ):
+func _on_ScreenOption_toggled( pressed ):
 	OS.set_window_fullscreen( pressed )
 	options["full_screen"]=pressed
-	get_node("/root/options_manager").write_options(options)
+	$"/root/options_manager".write_options(options)
 

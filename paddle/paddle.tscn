@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=1]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://paddle/paddle.gd" type="Script" id=1]
 [ext_resource path="res://textures/paddle.png" type="Texture" id=2]
@@ -6,59 +6,58 @@
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
-extents = Vector2( 50, 8 )
+extents = Vector2( 49.7446, 8.15161 )
 
-[node name="paddle" type="Node2D"]
+[node name="paddle" type="Node2D" index="0"]
 
-script/script = ExtResource( 1 )
-__meta__ = { "__editor_plugin_screen__":"Script" }
+script = ExtResource( 1 )
+__meta__ = {
+"__editor_plugin_screen__": "Script"
+}
 paddle_width = 0
-sticky = null
 
-[node name="paddle_area" type="Area2D" parent="."]
+[node name="paddle_area" type="Area2D" parent="." index="0"]
 
-input/pickable = true
-shapes/0/shape = SubResource( 1 )
-shapes/0/transform = Matrix32( 1, -0, 0, 1, 0, 0 )
-shapes/0/trigger = false
+input_pickable = true
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
 linear_damp = 0.1
 angular_damp = 1.0
-collision/layers = 3
-collision/mask = 3
-__meta__ = { "_editor_collapsed":true }
+collision_layer = 3
+collision_mask = 3
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Audio Bus", "Collision", "Pickable", "Transform", "Z Index" ]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="paddle_area"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="paddle_area" index="0"]
 
 shape = SubResource( 1 )
-trigger = false
-_update_shape_index = -1
+_sections_unfolded = [ "Transform", "Z Index" ]
 
-[node name="middle" type="Sprite" parent="."]
+[node name="middle" type="Sprite" parent="." index="1"]
 
-transform/pos = Vector2( 0, -1 )
-transform/scale = Vector2( 3.5, 1 )
+position = Vector2( 0, -1 )
+scale = Vector2( 3.5, 1 )
 texture = ExtResource( 2 )
-region = true
+region_enabled = true
 region_rect = Rect2( 20, 0, 20, 15 )
 
-[node name="left" type="Sprite" parent="."]
+[node name="left" type="Sprite" parent="." index="2"]
 
-transform/pos = Vector2( -50, -8 )
+position = Vector2( -50, -8 )
 texture = ExtResource( 2 )
 centered = false
-region = true
+region_enabled = true
 region_rect = Rect2( 0, 0, 16, 15 )
 
-[node name="right" type="Sprite" parent="."]
+[node name="right" type="Sprite" parent="." index="3"]
 
-transform/pos = Vector2( 34, -8 )
+position = Vector2( 34, -8 )
 texture = ExtResource( 2 )
 centered = false
-region = true
+region_enabled = true
 region_rect = Rect2( 44, 0, 16, 15 )
 
-[connection signal="body_enter" from="paddle_area" to="." method="_on_Area2D_body_enter"]
+[connection signal="body_entered" from="paddle_area" to="." method="_on_Area2D_body_enter"]
 
 

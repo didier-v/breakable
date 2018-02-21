@@ -1,10 +1,10 @@
-[gd_scene load_steps=2 format=1]
+[gd_scene load_steps=1 format=2]
 
 [ext_resource path="res://bonus_effect_manager/bonus_effect_manager.gd" type="Script" id=1]
 
 [node name="bonus_effect_manager" type="Node"]
 
-script/script = ExtResource( 1 )
-__meta__ = { "__editor_plugin_screen__":"2D" }
-
-
+script = ExtResource( 1 )
+__meta__ = {
+"__editor_plugin_screen__": "2D"
+}

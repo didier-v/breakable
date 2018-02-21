@@ -25,7 +25,7 @@ func add_observer(observer,notificationName,action):
 			"observers":{}
 		}
 	var currentObservers=notifications[notificationName].observers
-	currentObservers[observer.get_instance_ID()]={
+	currentObservers[observer.get_instance_id()]={
 		"object":observer,
 		"action":action
 	}
@@ -33,6 +33,7 @@ func add_observer(observer,notificationName,action):
 func remove_observer(observer, notificationName):
 	if notifications.has(notificationName):
 		var currentObservers=notifications[notificationName].observers
-		if currentObservers.has(observer.get_instance_ID()):
-			currentObservers.erase(observer.get_instance_ID())
+		if currentObservers.has(observer.get_instance_id()):
+			currentObservers.erase(observer.get_instance_id())
+
 

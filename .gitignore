@@ -3,15 +3,5 @@
 
 
 notes.txt
-
-static_brick/brickshader2-test.shd
-
-textures/bonus_extra_life0.png
-
-textures/brick.svg.2015_07_29_19_40_42.0.svg
-
-textures/brick.svg
-
-textures/brick001.png
-
-misc/
+export
+.import

@@ -1,0 +1,38 @@
+[gd_resource type="Shader" format=2]
+
+[resource]
+
+code = "shader_type canvas_item;
+
+
+float r(vec2 n)
+{
+    return fract(cos(dot(n,vec2(36.26,73.12)))*354.63);
+}
+
+float noise(vec2 n)
+{
+    vec2 fn = floor(n);
+    vec2 sn = smoothstep(vec2(0),vec2(1),fract(n));
+    
+    float h1 = mix(r(fn),r(fn+vec2(1,0)),sn.x);
+    float h2 = mix(r(fn+vec2(0,1)),r(fn+vec2(1)),sn.x);
+    return mix(h1,h2,sn.y);
+}
+
+float perlin(vec2 n)
+{
+    float total;
+    total = noise(n/32.0)*0.5875+noise(n/16.0)*0.2+noise(n/8.0)*0.1+noise(n/4.0)*0.05+noise(n/2.0)*0.025+noise(n)*0.0125;
+ 	return total;
+}
+
+void fragment() {
+	vec2 uv=UV;
+	uv.y=uv.y - (TIME * 4.0 );
+	float v = perlin(uv/TEXTURE_PIXEL_SIZE*1.8);
+	v = smoothstep(.85,v,1);
+	
+	COLOR.rgb = vec3(v,v,v);
+}"
+

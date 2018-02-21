@@ -1,25 +1,27 @@
-[gd_scene load_steps=3 format=1]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://static_brick/static_brick.gd" type="Script" id=1]
 [ext_resource path="res://textures/brick01.png" type="Texture" id=2]
 
 [node name="static_brick" type="Node2D"]
 
-transform/pos = Vector2( 3, 0 )
-script/script = ExtResource( 1 )
-__meta__ = { "__editor_plugin_screen__":"Script" }
+position = Vector2( 3, 0 )
+script = ExtResource( 1 )
+__meta__ = {
+"__editor_plugin_screen__": "Script"
+}
 
-[node name="brick_body" type="StaticBody2D" parent="."]
+[node name="brick_body" type="StaticBody2D" parent="." index="0"]
 
-input/pickable = false
-collision/layers = 4
-collision/mask = 1
+input_pickable = false
+collision_layer = 4
+collision_mask = 1
 constant_linear_velocity = Vector2( 0, 0 )
 constant_angular_velocity = 0.0
 friction = 0.0
 bounce = 1.0
 
-[node name="Sprite" type="Sprite" parent="."]
+[node name="Sprite" type="Sprite" parent="." index="1"]
 
 texture = ExtResource( 2 )
 

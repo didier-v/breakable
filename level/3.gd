@@ -3,7 +3,7 @@ extends "res://level/generic_level.gd"
 #autoload singletons
 # global
 
-func init_level(levelNode):
+func init_level(level_node):
 	var brick_array = {
 		0:[0,0,2,1,2,1,2,1,2,0,0],
 		1:[0,1,1,1,1,1,1,1,1,1,0],
@@ -24,12 +24,12 @@ func init_level(levelNode):
 		var brick_line = brick_array[i]
 		for j in range(bricks_in_row):
 			if(brick_line[j]>0):
-				var b = brique.instance()
-				b.set_name("brick_"+str(i)+"_"+str(j))
+				var b = brick.instance()
+				b.name = "brick_"+str(i)+"_"+str(j)
+				b.position = Vector2(j*(global.BRICK_WIDTH+separation)+margin+global.BRICK_WIDTH/2,top+i*(global.BRICK_HEIGHT+separation))
 				b.set_meta("type","brick")
-				b.set_pos(Vector2(j*(global.BRICK_WIDTH+separation)+margin+global.BRICK_WIDTH/2,top+i*(global.BRICK_HEIGHT+separation)))
-				levelNode.add_child(b)
 				b.set_hp(brick_line[j])
+				level_node.add_child(b)
 				total_bricks += 1
 
 	return total_bricks

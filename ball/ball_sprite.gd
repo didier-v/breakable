@@ -1,12 +1,12 @@
 
 extends Sprite
 
-var position
+
 var radius
 
 func _ready():
-	position=Vector2(0,0);
-	radius = 5;
+	position=Vector2(0,0)
+	radius = 5
 
 #TODO, use a real picture instead
 func _draw():
