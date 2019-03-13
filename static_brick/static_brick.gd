@@ -27,5 +27,5 @@ func set_current_hp(new_hp):
 	current_hp=new_hp
 	if(current_hp>0):
 		$Sprite.set_texture(global.brick_texture[current_hp]) #change texture according to current hp
-	
-	
+
+

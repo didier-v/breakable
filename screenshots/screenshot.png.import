@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/bonus_small_paddle.png-f30c11e89397be8d1e22e95c9625be9b.stex"
+path="res://.import/screenshot.png-366f1bfaaaad7eddb9e724c7ff485921.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://textures/bonus_small_paddle.png"
-dest_files=[ "res://.import/bonus_small_paddle.png-f30c11e89397be8d1e22e95c9625be9b.stex" ]
+source_file="res://screenshots/screenshot.png"
+dest_files=[ "res://.import/screenshot.png-366f1bfaaaad7eddb9e724c7ff485921.stex" ]
 
 [params]
 

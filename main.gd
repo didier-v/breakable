@@ -15,7 +15,7 @@ func _ready():
 	else:
 		if OS.get_locale().begins_with("fr") || OS.get_locale().begins_with("en"):
 			TranslationServer.set_locale(OS.get_locale())
-		
+
 	#load first scene
 	$"/root/global".load_menu()
 

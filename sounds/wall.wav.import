@@ -7,10 +7,7 @@ path="res://.import/wall.wav-59373acfcb0c45a5106115f03fac3c6e.sample"
 [deps]
 
 source_file="res://sounds/wall.wav"
-source_md5="017887670bda0ed968519342c6f79a0c"
-
 dest_files=[ "res://.import/wall.wav-59373acfcb0c45a5106115f03fac3c6e.sample" ]
-dest_md5="5a94801d3655c5f10e932e1d7ac64601"
 
 [params]
 

@@ -9,7 +9,7 @@ func _ready():
 	$CenterContainer/VBoxContainer/score.text = tr("SCORE")+" : "+str(global.score)
 
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-	
+
 	 #if current score better than lowest score in the list, open new hi score dialog
 	if(global.score>hsm.get_lowest_hi_score() or debug):
 		$hi_score_dialog.delegate = self

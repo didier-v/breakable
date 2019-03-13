@@ -10,7 +10,7 @@ var board
 export(float) var paddle_width=0 setget set_paddle_width
 
 func _ready():
-	
+
 	paddle_width=global.INITIAL_PADDLE_WIDTH
 	#paddle initial pos
 	self.position.x = get_viewport_rect().size.x/2
@@ -37,7 +37,7 @@ func _on_Area2D_body_enter( body ):
 		if body.get_meta("type")=="ball":
 			var velocity = body.get_linear_velocity()
 			velocity.y=-velocity.y # simple bounce
-	
+
 			var body_pos = body.position
 			var paddle_pos = position
 			var relative_pos_x = body_pos.x-paddle_pos.x
@@ -47,12 +47,12 @@ func _on_Area2D_body_enter( body ):
 			velocity = velocity.rotated(angle) # relative rotation, keeps speed
 			body.set_linear_velocity(velocity)
 			body.adjust_angle() #let the ball adjust the angle so the game keeps being playable
-			
+
 		elif body.get_meta("type")=="bonus":
 			nc.post_notification("bonus_hit",body)
 
 
-func update_paddle(): 
+func update_paddle():
 	if has_node("paddle_area"):
 		var paddle_area = $paddle_area
 		if(paddle_area.get_shape_owners().empty()):
@@ -61,7 +61,7 @@ func update_paddle():
 		paddle_area.shape_owner_clear_shapes(so)
 
 		var r = RectangleShape2D.new()
-		r.set_extents(Vector2(paddle_width/2,global.PADDLE_HEIGHT/2)) 
+		r.set_extents(Vector2(paddle_width/2,global.PADDLE_HEIGHT/2))
 		paddle_area.shape_owner_add_shape(so,r)
 		update()
 

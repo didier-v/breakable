@@ -7,10 +7,7 @@ path="res://.import/brick01.wav-0b34a3c4a66cc6a5e97552845e40dcc8.sample"
 [deps]
 
 source_file="res://sounds/brick01.wav"
-source_md5="33d3c677b7fa8581d5c93635c2a6f7fe"
-
 dest_files=[ "res://.import/brick01.wav-0b34a3c4a66cc6a5e97552845e40dcc8.sample" ]
-dest_md5="7c0c9ab3818230bec08d15e5bafcd6ec"
 
 [params]
 

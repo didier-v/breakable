@@ -30,7 +30,7 @@ func fire_effect(): ## some effects (like sticky) have a fire action
 func apply_score():
 	board.set_score(board.score+1000)
 	current_effect=""
-	
+
 ####################
 #EXTRA LIFE
 func apply_extra_life():
@@ -41,7 +41,7 @@ func apply_extra_life():
 #STICKY
 func apply_sticky():
 	board.sticky = true
-	
+
 func fire_sticky():
 	var children=board.get_children()
 	for child in children:
@@ -60,7 +60,7 @@ func apply_small_paddle():
 	else:
 		paddle.set_paddle_width(global.INITIAL_PADDLE_WIDTH-50)
 	current_effect=""
-		
+
 ####################
 #BIG PADDLE
 func apply_big_paddle():

@@ -3,20 +3,21 @@
 importer="texture"
 type="StreamTexture"
 path="res://.import/brick07.png-9f6134bbf2f7f8292ccd5bf9fa47ac6a.stex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
 source_file="res://textures/brick07.png"
-source_md5="3aa63020777e3c5588a494796ee0786c"
-
 dest_files=[ "res://.import/brick07.png-9f6134bbf2f7f8292ccd5bf9fa47ac6a.stex" ]
-dest_md5="3a465fbb67fd5171efce56fd8f54b97e"
 
 [params]
 
 compress/mode=0
 compress/lossy_quality=0.7
 compress/hdr_mode=0
+compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
 flags/filter=true
@@ -26,6 +27,7 @@ flags/srgb=2
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false
+process/invert_color=false
 stream=false
 size_limit=0
 detect_3d=true

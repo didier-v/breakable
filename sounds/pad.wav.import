@@ -7,10 +7,7 @@ path="res://.import/pad.wav-6665021d4092b95196d2b5d2e89fbe76.sample"
 [deps]
 
 source_file="res://sounds/pad.wav"
-source_md5="74f99967810db61df4a4e5b2d98822f1"
-
 dest_files=[ "res://.import/pad.wav-6665021d4092b95196d2b5d2e89fbe76.sample" ]
-dest_md5="7585a042e2fef526eec6d77315e8359e"
 
 [params]
 

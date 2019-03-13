@@ -1,7 +1,7 @@
 
 extends Node
 
-#autoload singletons: 
+#autoload singletons:
 # - global
 # - nc
 
@@ -18,7 +18,7 @@ var current_speed
 var multiplier # every brick hit has its value multiplied by this
 var bricks_left
 var bricks_since_last_bonus
-var balls_in_game # usually 1 but can be more with the "three balls" bonus 
+var balls_in_game # usually 1 but can be more with the "three balls" bonus
 var sticky = false # for the sticky bonus
 
 
@@ -29,7 +29,7 @@ func _ready():
 	nc.add_observer(self,"paddle_hit","paddle_hit")
 	nc.add_observer(self,"wall_hit","wall_hit")
 	nc.add_observer(self,"bonus_hit","bonus_hit")
-	
+
 	#initial state
 	score=0
 	balls_in_game=0
@@ -39,10 +39,10 @@ func _ready():
 	current_level=1
 	init_level()
 	$paddle.board = self
-	
+
 	#input
 	set_process_input(true)
-	
+
 	#mouse
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 
@@ -116,7 +116,7 @@ func create_ball(speed):
 	return ball
 
 func start_ball():
-	for child in get_children(): #find balls 
+	for child in get_children(): #find balls
 		if child.has_meta("type") && child.get_meta("type")=="ball":
 			child.start()
 			return
@@ -149,7 +149,7 @@ func brick_hit( observer, notificationName,data):
 			if(current_level>global.MAX_LEVEL):
 				current_level=1
 			$board_animation.play("level_transition") #animation between levels
-	
+
 func paddle_hit(observer, notificationName,notificationData):
 	if playing:
 		$pad_sound.play(0) # paddle
@@ -184,7 +184,7 @@ func _on_area_lost_body_entered( body ): #area below the paddle
 				else:
 					playing = false
 					create_ball(current_speed) #new ball
-	
+
 			body.queue_free() # remove the ball
 			balls_in_game-=1
 		elif body.get_meta("type")=="bonus":
@@ -222,7 +222,7 @@ func set_score(s):
 	$game_ui.set_multiplier(multiplier)
 
 
-func clone_ball(current_ball,n): 
+func clone_ball(current_ball,n):
 	#for the multiple balls bonus
 	for i in range(n):
 		var ball=create_ball(current_speed) #new ball

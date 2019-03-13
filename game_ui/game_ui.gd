@@ -9,7 +9,7 @@ func _ready():
 	nc.add_observer(self,"show_bonus_message","show_bonus_message")
 
 func _exit_tree():
-	nc.remove_observer(self,"show_bonus_message") 
+	nc.remove_observer(self,"show_bonus_message")
 
 func set_score(score):
 	$score.text = str(score)

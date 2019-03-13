@@ -3,20 +3,21 @@
 importer="texture"
 type="StreamTexture"
 path="res://.import/paddle.png-1d2a28e983477361da92398ef0d5efd1.stex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
 source_file="res://textures/paddle.png"
-source_md5="6d7ec7434c638c776516e74643bc430d"
-
 dest_files=[ "res://.import/paddle.png-1d2a28e983477361da92398ef0d5efd1.stex" ]
-dest_md5="27b4be05294af36b7e459809b0aecef4"
 
 [params]
 
 compress/mode=0
 compress/lossy_quality=0.7
 compress/hdr_mode=0
+compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
 flags/filter=true
@@ -26,6 +27,7 @@ flags/srgb=2
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false
+process/invert_color=false
 stream=false
 size_limit=0
 detect_3d=true

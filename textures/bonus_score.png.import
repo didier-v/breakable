@@ -3,20 +3,21 @@
 importer="texture"
 type="StreamTexture"
 path="res://.import/bonus_score.png-e15b913c0fd01f209aad2cc16bfb0a15.stex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
 source_file="res://textures/bonus_score.png"
-source_md5="948bc356fd8909824f9d2f3d9d8f3133"
-
 dest_files=[ "res://.import/bonus_score.png-e15b913c0fd01f209aad2cc16bfb0a15.stex" ]
-dest_md5="5c706ac034911580655f263d1eb2e0ab"
 
 [params]
 
 compress/mode=0
 compress/lossy_quality=0.7
 compress/hdr_mode=0
+compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
 flags/filter=true
@@ -26,6 +27,7 @@ flags/srgb=2
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false
+process/invert_color=false
 stream=false
 size_limit=0
 detect_3d=true
