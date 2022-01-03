@@ -2,8 +2,8 @@ extends Node
 
 
 #Collision layers
-#ball 1 , no mask 
-#bonus 2  , no mask 
+#ball 1 , no mask
+#bonus 2  , no mask
 #brick 3, mask 1
 #paddle 1,2, mask 1,2
 
@@ -25,7 +25,7 @@ extends Node
 
 
 var score # score of the current game
-var brick_texture #array of brick textures 
+var brick_texture #array of brick textures
 var bonus_texture #dictionary of bonus textures
 var bonus_effect #dictionary of bonus effects
 var bonus_message #dictionary of bonus messages
@@ -40,7 +40,7 @@ const MAX_LEVEL = 2
 func _ready():
 
 	score=0
-	
+
 	bonus_texture =  {
 		"score":preload("res://textures/bonus_score.png"),
 		"sticky":preload("res://textures/bonus_sticky.png"),
@@ -61,7 +61,7 @@ func _ready():
 #		"ghost":5,
 #		"fog":10
 	}
-	
+
 	bonus_message = {
 		"score":"BONUS_SCORE",
 		"sticky":"BONUS_STICKY",
@@ -74,7 +74,7 @@ func _ready():
 #		"fog":10
 	}
 
-		
+
 	brick_texture=[null,
 		preload("res://textures/brick01.png"), #1 hit
 		preload("res://textures/brick11.png")  #2 hits
@@ -84,7 +84,7 @@ func _ready():
 	#mod_scener = get_node("/root/mod_scener")
 
 
-	
+
 #SCENE MANAGEMENT
 
 func new_game():
@@ -92,15 +92,15 @@ func new_game():
 
 func load_menu():
 	get_tree().change_scene("res://menu/menu.tscn")
-	
+
 func load_hi_scores():
 	get_tree().change_scene("res://hi_scores/hi_scores.tscn")
 
 func load_options():
 	get_tree().change_scene("res://options/options.tscn")
 
-func load_game_over(score):
+func load_game_over(_score):
 	get_tree().change_scene("res://game_over/game_over.tscn")
-	
+
 func quit():
 	get_tree().quit()
