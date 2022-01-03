@@ -9,7 +9,7 @@ func read_options():
 		options = f.get_var()
 		f.close()
 	return options
-	
+
 func write_options(options):
 	var f = File.new()
 	var err = f.open("user://options.data",File.WRITE) #will create or replace the file
