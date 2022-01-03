@@ -4,8 +4,8 @@ A breakout-like game made with Godot Engine
 I made this game to learn Godot and test various features.
 ![Screenshot](screenshots/screenshot.png)
 
-### Godot 3.2
-The master branch is now compatible with Godot 3.2.x.
+### Godot 3.4
+The master branch is now compatible with Godot 3.4.x.
 The Godot 2.x version is still available in the [Godot 2.1 branch](https://github.com/didier-v/breakable/tree/Godot-2.1).
  - new $ syntax for get_nodes
  - rewrote code incompatible with the new physics engine
