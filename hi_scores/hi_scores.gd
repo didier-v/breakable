@@ -6,7 +6,6 @@ extends Node
 # hsm
 
 func _ready():
-	var i=1
 	var pos_text=""
 	var name_text=""
 	var score_text=""
@@ -17,7 +16,7 @@ func _ready():
 		pos_label.align = Label.ALIGN_RIGHT
 
 		pos_text = pos_text+str(i+1)+".\n"
-		
+
 		var name_label = Label.new()
 		name_label.text = hsm.score_names[i]
 		name_label.set_size(Vector2(800,30))
